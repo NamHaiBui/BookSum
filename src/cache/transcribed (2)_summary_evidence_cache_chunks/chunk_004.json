@@ -1,0 +1,409 @@
+{
+  "summary": "This chapter emphasizes the role of the non-conscious mind in habits and introduces techniques for increasing awareness to facilitate behavior change. It begins with a story about a paramedic who sensed her father-in-law's impending heart attack and uses other examples, such as military analysts and museum curators, to illustrate how experience allows people to unconsciously recognize patterns. The chapter explains that the brain is a prediction machine that continuously analyzes information and encodes lessons learned through experience. It notes that we underestimate the power of our non-conscious minds, which govern many bodily functions and behaviors like hunger. Habits form as actions become automatic, guided by cues we may not even be aware of, which can be both useful and dangerous. Examples of habits performed on autopilot are provided, such as a retail clerk cutting a customer's credit card and a preschool teacher asking coworkers if they washed their hands. The chapter argues that awareness is crucial for behavior change and introduces the habit scorecard as a tool for becoming more conscious of daily habits. It describes how to create a habit scorecard by listing daily habits and categorizing them as good, bad, or neutral based on individual goals and long-term outcomes. It suggests asking, \"Does this behavior help me become the type of person I wish to be?\" to determine how to rate a habit. The chapter emphasizes the importance of observing habits without judgment and suggests using \"pointing and calling\" to increase awareness of actions and their consequences. The chapter uses the example of the Japanese railway system's \"pointing and calling\" safety system, where workers point and call out commands to reduce errors. This technique raises awareness and reduces mistakes. The chapter concludes by reiterating that behavior change begins with awareness and that tools like pointing and calling and the habit scorecard can help individuals recognize their habits and the cues that trigger them.",
+  "evidence": [
+    {
+      "verbatim_text": "[01:21:17,668,01:21:22,031] The psychologist Gary Klein once told me a story about a woman who attended a family gathering."
+    },
+    {
+      "verbatim_text": "[01:21:23,011,01:21:29,456] She had spent years working as a paramedic and, upon arriving at the event, took one look at her father-in-law and got very concerned."
+    },
+    {
+      "verbatim_text": "[01:21:30,356,01:21:31,657] I don't like the way you look, she said."
+    },
+    {
+      "verbatim_text": "[01:21:41,775,01:21:50,358] A few hours later, the man was undergoing life-saving surgery after an examination had revealed that he had a blockage to a major artery and was at immediate risk of a heart attack."
+    },
+    {
+      "verbatim_text": "[01:21:51,258,01:21:53,719] Without his daughter-in-law's intuition, he could have died."
+    },
+    {
+      "verbatim_text": "[01:21:59,861,01:22:06,503] When major arteries are obstructed, the body focuses on sending blood to critical organs and away from peripheral locations near the surface of the skin."
+    },
+    {
+      "verbatim_text": "[01:22:07,450,01:22:10,751] The result is a change in the pattern of distribution of blood in the face."
+    },
+    {
+      "verbatim_text": "[01:22:11,511,01:22:17,753] After many years of working with people with heart failure, the woman had unknowingly developed the ability to recognize this pattern on sight."
+    },
+    {
+      "verbatim_text": "[01:22:18,714,01:22:23,255] She couldn't explain what it was that she had noticed in her father-in-law's face, but she knew something was wrong."
+    },
+    {
+      "verbatim_text": "[01:22:27,260,01:22:40,837] For example, military analysts can identify which blip on a radar screen is an enemy missile and which one is a plane from their own fleet, even though they are traveling at the same speed, flying at the same altitude, and look identical on radar in nearly every respect."
+    },
+    {
+      "verbatim_text": "[01:22:41,841,01:22:51,490] During the Gulf War, Lieutenant Commander Michael Riley saved an entire battleship when he ordered a missile shot down, despite the fact that it looked exactly like the battleship's own planes on radar."
+    },
+    {
+      "verbatim_text": "[01:22:56,835,01:23:05,483] Museum curators have been known to discern the difference between an authentic piece of art and an expertly produced counterfeit, even though they can't tell you precisely which details tip them off."
+    },
+    {
+      "verbatim_text": "[01:23:06,443,01:23:13,589] Experienced radiologists can look at a brain scan and predict the area where a stroke will develop before any obvious signs are visible to the untrained eye."
+    },
+    {
+      "verbatim_text": "[01:23:14,590,01:23:18,993] I've even heard of hairdressers noticing whether a client is pregnant based only on the feel of her hair."
+    },
+    {
+      "verbatim_text": "[01:23:20,375,01:23:22,136] The human brain is a prediction machine."
+    },
+    {
+      "verbatim_text": "[01:23:22,536,01:23:26,860] It is continuously taking in your surroundings and analyzing the information it comes across."
+    },
+    {
+      "verbatim_text": "[01:23:27,690,01:23:43,244] Whenever you experience something repeatedly, like a paramedic seeing the face of a heart attack patient or a military analyst seeing a missile on a radar screen, your brain begins noticing what is important, sorting through the details, and highlighting the relevant cues, and cataloging that information for future use."
+    },
+    {
+      "verbatim_text": "[01:23:44,645,01:23:49,709] With enough practice, you can pick up on the cues that predict certain outcomes without consciously thinking about it."
+    },
+    {
+      "verbatim_text": "[01:23:50,410,01:23:53,593] Automatically, your brain encodes the lessons learned through experience."
+    },
+    {
+      "verbatim_text": "[01:23:54,707,01:24:04,793] We can't always explain what it is we are learning, but learning is happening all along the way, and your ability to notice the relevant cues in a given situation is the foundation for every habit you have."
+    },
+    {
+      "verbatim_text": "[01:24:05,853,01:24:09,155] We underestimate how much our brains and bodies can do without thinking."
+    },
+    {
+      "verbatim_text": "[01:24:09,775,01:24:14,958] You do not tell your hair to grow, your heart to pump, your lungs to breathe, or your stomach to digest."
+    },
+    {
+      "verbatim_text": "[01:24:15,759,01:24:21,342] And yet, your body handles all of this and more on autopilot. You are much more than your conscious self."
+    },
+    {
+      "verbatim_text": "[01:24:22,520,01:24:25,221] Consider hunger. How do you know when you are hungry?"
+    },
+    {
+      "verbatim_text": "[01:24:25,761,01:24:29,242] You don't necessarily have to see a cookie on the counter to realize that it's time to eat."
+    },
+    {
+      "verbatim_text": "[01:24:29,862,01:24:32,103] Appetite and hunger are governed non-consciously."
+    },
+    {
+      "verbatim_text": "[01:24:32,743,01:24:39,785] Your body has a variety of feedback loops that gradually alert you when it is time to eat again and that track what is going on around you and within you."
+    },
+    {
+      "verbatim_text": "[01:24:41,065,01:24:44,686] Cravings can arise thanks to hormones and chemicals circulating through your body."
+    },
+    {
+      "verbatim_text": "[01:24:45,566,01:24:48,327] Suddenly, you're hungry even though you're not quite sure what tipped you off."
+    },
+    {
+      "verbatim_text": "[01:24:49,318,01:24:51,640] This is one of the most surprising insights about our habits."
+    },
+    {
+      "verbatim_text": "[01:24:52,140,01:24:54,862] You don't need to be aware of the cue for a habit to begin."
+    },
+    {
+      "verbatim_text": "[01:24:55,422,01:24:59,605] You can notice an opportunity and take action without dedicating conscious attention to it."
+    },
+    {
+      "verbatim_text": "[01:25:00,586,01:25:04,409] This is what makes a habit useful, but it's also what makes them dangerous."
+    },
+    {
+      "verbatim_text": "[01:25:05,589,01:25:10,173] As habits form, your actions come under the direction of your automatic and non-conscious mind."
+    },
+    {
+      "verbatim_text": "[01:25:10,999,01:25:13,662] You fall into old patterns before you realize what's happening."
+    },
+    {
+      "verbatim_text": "[01:25:14,403,01:25:23,855] Unless someone points it out, you may not notice that you cover your mouth with your hand whenever you laugh, or that you apologize before asking a question, or that you have a habit of finishing other people's sentences."
+    },
+    {
+      "verbatim_text": "[01:25:24,716,01:25:29,702] And the more you repeat these patterns, the less likely you become to question what you're doing and why you're doing it."
+    },
+    {
+      "verbatim_text": "[01:25:30,830,01:25:36,414] I once heard of a retail clerk who was instructed to cut up empty gift cards after customers had used up the balance on the card."
+    },
+    {
+      "verbatim_text": "[01:25:37,135,01:25:40,938] One day, the clerk cashed out a few customers in a row who purchased with gift cards."
+    },
+    {
+      "verbatim_text": "[01:25:41,918,01:25:52,206] When the next person walked up, the clerk swiped the customer's actual credit card, picked up the scissors, and then cut it in half, entirely on autopilot, before looking up at the stunned customer and realizing what had just happened."
+    },
+    {
+      "verbatim_text": "[01:25:53,497,01:25:57,962] Another woman I came across in my research was a former preschool teacher who had switched to a corporate job."
+    },
+    {
+      "verbatim_text": "[01:25:58,743,01:26:05,251] Even though she was now working with adults, her old habits would kick in and she kept asking co-workers if they had washed their hands after going to the bathroom."
+    },
+    {
+      "verbatim_text": "[01:26:06,212,01:26:12,460] I also found the story of a man who had spent years working as a lifeguard and would occasionally yell, walk, whenever he saw a child running."
+    },
+    {
+      "verbatim_text": "[01:26:13,868,01:26:18,170] Over time, the cues that spark our habits can become so common that they are essentially invisible."
+    },
+    {
+      "verbatim_text": "[01:26:18,570,01:26:22,772] The treats on the kitchen counter, the remote control next to the couch, the phone in our pocket."
+    },
+    {
+      "verbatim_text": "[01:26:23,472,01:26:28,494] Our responses to these cues are so deeply encoded that it may feel like the urge to act comes from nowhere."
+    },
+    {
+      "verbatim_text": "[01:26:29,274,01:26:33,296] For this reason, we must begin the process of behavior change with awareness."
+    },
+    {
+      "verbatim_text": "[01:26:34,452,01:26:38,334] Before we can effectively build new habits, we need to get a handle on our current ones."
+    },
+    {
+      "verbatim_text": "[01:26:38,994,01:26:45,336] This can be more challenging than it sounds, because once a habit is firmly rooted in your life, it is mostly non-conscious and automatic."
+    },
+    {
+      "verbatim_text": "[01:26:46,317,01:26:49,258] If a habit remains mindless, you can't expect to improve it."
+    },
+    {
+      "verbatim_text": "[01:26:49,998,01:26:56,801] As the psychologist Carl Jung said, until you make the unconscious conscious, it will direct your life and you will call it fate."
+    },
+    {
+      "verbatim_text": "[01:26:58,942,01:27:04,382] The habit scorecard.  The Japanese railway system is regarded as one of the best in the world."
+    },
+    {
+      "verbatim_text": "[01:27:05,242,01:27:10,323] If you ever find yourself riding a train in Tokyo, you'll notice that the conductors have a peculiar habit."
+    },
+    {
+      "verbatim_text": "[01:27:11,424,01:27:16,965] As each operator runs the train, they proceed through a ritual of pointing at different objects and calling out commands."
+    },
+    {
+      "verbatim_text": "[01:27:17,685,01:27:21,986] When the train approaches a signal, the operator will point at it and say, signal is green."
+    },
+    {
+      "verbatim_text": "[01:27:22,847,01:27:28,408] As the train pulls into and out of each station, the operator will point at the speedometer and call out the exact speed."
+    },
+    {
+      "verbatim_text": "[01:27:29,725,01:27:33,308] When it's time to leave, the operator will point at the timetable and state the time."
+    },
+    {
+      "verbatim_text": "[01:27:34,269,01:27:37,272] Out on the platform, other employees are performing similar actions."
+    },
+    {
+      "verbatim_text": "[01:27:37,932,01:27:42,636] Before each train departs, staff members will point along the edge of the platform and declare, all clear."
+    },
+    {
+      "verbatim_text": "[01:27:43,777,01:27:46,580] Every detail is identified, pointed at, and named aloud."
+    },
+    {
+      "verbatim_text": "[01:27:48,230,01:27:52,795] This process, known as pointing and calling, is the safety system designed to reduce mistakes."
+    },
+    {
+      "verbatim_text": "[01:27:53,295,01:27:55,197] It seems silly, but it works incredibly well."
+    },
+    {
+      "verbatim_text": "[01:27:55,758,01:27:59,742] Pointing and calling reduces errors by up to 85% and cuts accidents by 30%."
+    },
+    {
+      "verbatim_text": "[01:27:59,802,01:28:10,253] The MTA subway system in New York City adopted a modified version that is point only, and within two years of implementation, incidents of incorrectly berthed subways fell 57%."
+    },
+    {
+      "verbatim_text": "[01:28:12,290,01:28:15,291] When I visited Japan, I saw this strategy save a woman's life."
+    },
+    {
+      "verbatim_text": "[01:28:15,951,01:28:23,234] Her young son stepped onto the Shinkansen, one of Japan's famous bullet trains that travel at over 200 miles per hour, just as the doors were closing."
+    },
+    {
+      "verbatim_text": "[01:28:24,034,01:28:27,555] She was left outside on the platform and jammed her arm through the door to grab him."
+    },
+    {
+      "verbatim_text": "[01:28:28,275,01:28:36,218] With her arm stuck in the door, the train was about to take off, but right before it pulled away, an employee performed a safety check by pointing and calling up and down the platform."
+    },
+    {
+      "verbatim_text": "[01:28:37,333,01:28:41,154] In less than five seconds, he noticed the woman and managed to stop the train from leaving."
+    },
+    {
+      "verbatim_text": "[01:28:41,574,01:28:47,075] The door opened, and the woman, now in tears, ran to her son, and a minute later, the train departed safely."
+    },
+    {
+      "verbatim_text": "[01:28:48,495,01:28:54,696] Pointing and calling is so effective because it raises the level of awareness from a non-conscious habit to a more conscious level."
+    },
+    {
+      "verbatim_text": "[01:28:55,437,01:29:02,478] Because the train operators must use their eyes, hands, mouth, and ears, they are more likely to notice problems before something goes wrong."
+    },
+    {
+      "verbatim_text": "[01:29:03,509,01:29:04,610] My wife does something similar."
+    },
+    {
+      "verbatim_text": "[01:29:05,010,01:29:10,294] Whenever we are preparing to walk out the door for a trip, she verbally calls out the most essential items in her packing list."
+    },
+    {
+      "verbatim_text": "[01:29:10,794,01:29:14,296] I've got my keys. I've got my wallet. I've got my glasses. I've got my husband."
+    },
+    {
+      "verbatim_text": "[01:29:15,457,01:29:19,520] The more automatic a behavior becomes, the less likely we are to consciously think about it."
+    },
+    {
+      "verbatim_text": "[01:29:20,200,01:29:23,642] And when we've done something a thousand times before, we begin to overlook things."
+    },
+    {
+      "verbatim_text": "[01:29:24,143,01:29:26,284] We assume that the next time will be just like the last."
+    },
+    {
+      "verbatim_text": "[01:29:26,905,01:29:31,768] We're so used to doing what we've always done that we don't stop to question whether it is the right thing to do at all."
+    },
+    {
+      "verbatim_text": "[01:29:33,027,01:29:37,289] Many of our failures in performance are largely attributable to a lack of self-awareness."
+    },
+    {
+      "verbatim_text": "[01:29:38,429,01:29:42,991] One of our great challenges in changing habits is maintaining awareness of what we're actually doing."
+    },
+    {
+      "verbatim_text": "[01:29:43,731,01:29:47,092] This helps explain why the consequences of bad habits can sneak up on us."
+    },
+    {
+      "verbatim_text": "[01:29:47,692,01:29:50,253] We need a point and call system for our own lives."
+    },
+    {
+      "verbatim_text": "[01:29:51,274,01:29:56,536] That's the origin of the habit scorecard, which is a simple exercise you can use to become more aware of your behavior."
+    },
+    {
+      "verbatim_text": "[01:29:57,716,01:30:02,278] To create your own, make a list of your daily habits. Here's a sample of where you might start."
+    },
+    {
+      "verbatim_text": "[01:30:03,513,01:30:12,761] wake up, turn off the alarm, check my phone, go to the bathroom, weigh myself, take a shower, and so on."
+    },
+    {
+      "verbatim_text": "[01:30:14,202,01:30:20,648] Once you have a full list, look at each behavior and ask yourself, is this a good habit, a bad habit, or a neutral habit?"
+    },
+    {
+      "verbatim_text": "[01:30:21,628,01:30:26,813] If it's a good habit, write a plus sign next to it. If it is a bad habit, write a minus sign next to it."
+    },
+    {
+      "verbatim_text": "[01:30:27,333,01:30:32,782] And if it's neutral, write an equal sign.  For example, the list I just mentioned might look like this."
+    },
+    {
+      "verbatim_text": "[01:30:33,643,01:30:38,707] Wake up, neutral habit. Turn off alarm, neutral. Check my phone."
+    },
+    {
+      "verbatim_text": "[01:30:39,367,01:30:43,971] Probably shouldn't do that before I get out of bed, that's negative. Go to the bathroom, neutral."
+    },
+    {
+      "verbatim_text": "[01:30:44,691,01:30:48,194] Weigh myself, positive. Take a shower, positive, and so on."
+    },
+    {
+      "verbatim_text": "[01:30:49,475,01:30:53,258] The marks you give to a particular habit will depend on your situation and your goals."
+    },
+    {
+      "verbatim_text": "[01:30:53,899,01:30:58,122] For someone who is trying to lose weight, eating a bagel with peanut butter every morning might be a bad habit."
+    },
+    {
+      "verbatim_text": "[01:30:58,908,01:31:02,369] For someone who's trying to bulk up and add muscle, the same behavior might be a good habit."
+    },
+    {
+      "verbatim_text": "[01:31:03,049,01:31:04,409] It all depends on what you're working toward."
+    },
+    {
+      "verbatim_text": "[01:31:12,531,01:31:16,172] It's worth noting that scoring your habits can be a little more complex for another reason."
+    },
+    {
+      "verbatim_text": "[01:31:17,072,01:31:23,314] The labels good habit and bad habit are slightly inaccurate. There aren't really any good habits or bad habits."
+    },
+    {
+      "verbatim_text": "[01:31:23,354,01:31:27,555] There are only effective habits. That is, effective at solving problems."
+    },
+    {
+      "verbatim_text": "[01:31:28,620,01:31:32,364] All habits serve you in some way, even the bad ones, which is why you repeat them."
+    },
+    {
+      "verbatim_text": "[01:31:33,125,01:31:38,330] For this exercise, categorize your habits based on how they will benefit you or hurt you in the long run."
+    },
+    {
+      "verbatim_text": "[01:31:39,491,01:31:45,137] Generally speaking, good habits will have net positive outcomes. Bad habits will have net negative outcomes."
+    },
+    {
+      "verbatim_text": "[01:31:45,918,01:31:51,043] Smoking a cigarette may reduce stress right now, that's how it's serving you, but it's not a healthy long-term behavior."
+    },
+    {
+      "verbatim_text": "[01:31:52,208,01:31:57,593] If you're still having trouble determining how to rate a particular habit on your habit scorecard, here's a question I like to use."
+    },
+    {
+      "verbatim_text": "[01:31:58,253,01:32:01,276] Does this behavior help me become the type of person I wish to be?"
+    },
+    {
+      "verbatim_text": "[01:32:02,076,01:32:05,319] Does this habit cast a vote for or against my desired identity?"
+    },
+    {
+      "verbatim_text": "[01:32:06,300,01:32:09,102] Habits that reinforce your desired identity are usually good."
+    },
+    {
+      "verbatim_text": "[01:32:09,442,01:32:12,405] Habits that conflict with your desired identity are usually bad."
+    },
+    {
+      "verbatim_text": "[01:32:13,845,01:32:17,208] As you create your habit scorecard, there is no need to change anything at first."
+    },
+    {
+      "verbatim_text": "[01:32:17,768,01:32:20,230] The goal is simply to notice what is actually going on."
+    },
+    {
+      "verbatim_text": "[01:32:20,731,01:32:25,855] Observe your thoughts and actions without judgment or internal criticism. Don't blame yourself for your faults."
+    },
+    {
+      "verbatim_text": "[01:32:26,255,01:32:27,716] Don't praise yourself for your successes."
+    },
+    {
+      "verbatim_text": "[01:32:29,137,01:32:33,141] If you eat a chocolate bar every morning, acknowledge it, almost as if you were watching someone else."
+    },
+    {
+      "verbatim_text": "[01:32:33,781,01:32:35,623] Oh, how interesting that they would do such a thing."
+    },
+    {
+      "verbatim_text": "[01:32:36,472,01:32:39,517] If you binge eat, simply notice that you are eating more calories than you should."
+    },
+    {
+      "verbatim_text": "[01:32:40,218,01:32:43,945] If you waste your time online, notice that you are spending your life in a way that you do not want to."
+    },
+    {
+      "verbatim_text": "[01:32:45,257,01:32:48,098] The first step to changing bad habits is to be on the lookout for them."
+    },
+    {
+      "verbatim_text": "[01:32:48,898,01:32:52,238] If you feel like you need extra help, then you can try pointing and calling in your own life."
+    },
+    {
+      "verbatim_text": "[01:32:52,859,01:32:56,119] Say out loud the action that you are thinking of taking and what the outcome will be."
+    },
+    {
+      "verbatim_text": "[01:32:56,899,01:33:03,661] If you want to cut back on your junk food habit, but you notice yourself grabbing another cookie, say out loud, I'm about to eat this cookie, but I don't need it."
+    },
+    {
+      "verbatim_text": "[01:33:03,961,01:33:06,021] Eating it will cause me to gain weight and hurt my health."
+    },
+    {
+      "verbatim_text": "[01:33:06,981,01:33:10,462] Hearing your bad habits spoken aloud makes the consequences seem more real."
+    },
+    {
+      "verbatim_text": "[01:33:11,002,01:33:14,763] It adds weight to the action rather than letting yourself mindlessly slip into an old routine."
+    },
+    {
+      "verbatim_text": "[01:33:15,565,01:33:19,206] This approach is useful even if you're simply trying to remember a task on your to-do list."
+    },
+    {
+      "verbatim_text": "[01:33:19,787,01:33:25,329] Just saying out loud, tomorrow I need to go to the post office after lunch, increases the odds that you'll actually do it."
+    },
+    {
+      "verbatim_text": "[01:33:26,129,01:33:29,290] You're getting yourself to acknowledge the need for action and that can make all the difference."
+    },
+    {
+      "verbatim_text": "[01:33:30,511,01:33:33,172] The process of behavior change always starts with awareness."
+    },
+    {
+      "verbatim_text": "[01:33:34,192,01:33:43,836] Strategies like pointing and calling and the habit scorecard are focused on getting you to recognize your habits and acknowledge the cues that trigger them, which makes it possible to respond in a way that benefits you."
+    },
+    {
+      "verbatim_text": "[01:33:46,098,01:33:53,101] Chapter Summary With enough practice, your brain will pick up on the cues that predict certain outcomes without consciously thinking about it."
+    },
+    {
+      "verbatim_text": "[01:33:54,482,01:33:57,703] Once our habits become automatic, we stop paying attention to what we are doing."
+    },
+    {
+      "verbatim_text": "[01:33:58,904,01:34:01,605] The process of behavior change always starts with awareness."
+    },
+    {
+      "verbatim_text": "[01:34:02,045,01:34:04,546] You need to be aware of your habits before you can change them."
+    },
+    {
+      "verbatim_text": "[01:34:05,827,01:34:12,170] Pointing and calling raises your level of awareness from a non-conscious habit to a more conscious level by verbalizing your actions."
+    },
+    {
+      "verbatim_text": "[01:34:13,294,01:34:17,596] The Habit Scorecard is a simple exercise you can use to become more aware of your behavior."
+    }
+  ],
+  "start_index": 820,
+  "end_index": 960
+}

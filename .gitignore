@@ -5,6 +5,9 @@ __pycache__/
 
 # C extensions
 *.so
+output_snippets_by_chunk/
+output_images/
+book_pipeline/
 
 # Distribution / packaging
 .Python
@@ -27,6 +30,9 @@ pdf/
 data/
 *.egg
 MANIFEST
+book_pipeline/
+audio_book_pipeline/
+output_snippets_by_chunk/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

@@ -1,0 +1,289 @@
+{
+  "summary": "Chapter 14 of \"Atomic Habits\" discusses making good habits inevitable and bad habits impossible. It starts with the story of Victor Hugo, who, facing a deadline, locked away his clothes to avoid distractions and focus on writing. The chapter introduces the concept of a 'commitment device,' a present choice that controls future actions, illustrated by Hugo's actions and the tale of Ulysses. Examples of commitment devices include buying individual food packages, joining casino ban lists, and using outlet timers to cut off internet access. The chapter emphasizes making good habits easier and bad habits harder by increasing friction. It presents the story of John Henry Patterson and the invention of the cash register, which automated ethical behavior by preventing theft. The chapter suggests automating good habits through one-time actions and technology, like buying a water filter or setting up automatic bill pay, while acknowledging technology's potential downsides, such as binge-watching. The author shares their experience of having an assistant reset social media passwords to reduce distractions. Ultimately, the chapter advocates using commitment devices, one-time decisions, and technology to create an environment where good habits are guaranteed and bad habits are impossible. The chapter summary reiterates that the inversion of the third law of behavior change is to make it difficult, and that commitment devices and automation are key to locking in future behavior. It also provides a cheat sheet on how to create and break habits.",
+  "evidence": [
+    {
+      "verbatim_text": "[03:40:11,064,03:40:15,648] Chapter 14, How to Make Good Habits Inevitable and Bad Habits Impossible."
+    },
+    {
+      "verbatim_text": "[03:40:18,427,03:40:22,468] In the summer of 1830, Victor Hugo was facing an impossible deadline."
+    },
+    {
+      "verbatim_text": "[03:40:23,588,03:40:26,809] Twelve months earlier, the French author had promised his publisher a new book."
+    },
+    {
+      "verbatim_text": "[03:40:27,689,03:40:33,190] But instead of writing, he spent that year pursuing other projects, entertaining guests, and delaying his work."
+    },
+    {
+      "verbatim_text": "[03:40:46,581,03:40:50,822] He collected all of his clothes and asked an assistant to lock them away in a large chest."
+    },
+    {
+      "verbatim_text": "[03:40:51,962,03:40:54,182] He was left with nothing to wear except a large shawl."
+    },
+    {
+      "verbatim_text": "[03:40:55,323,03:41:00,804] Lacking any suitable clothing to go outdoors, he remained in his study and wrote furiously during the fall and winter of 1830."
+    },
+    {
+      "verbatim_text": "[03:41:01,204,03:41:05,285] The Hunchback of Notre Dame was published two weeks early on January 14, 1831."
+    },
+    {
+      "verbatim_text": "[03:41:21,382,03:41:26,263] Sometimes success is less about making good habits easy and more about making bad habits hard."
+    },
+    {
+      "verbatim_text": "[03:41:31,465,03:41:41,409] If you find yourself continually struggling to follow through on your plans, then you can take a page from Victor Hugo and make your bad habits more difficult by creating what psychologists call a commitment device."
+    },
+    {
+      "verbatim_text": "[03:41:42,770,03:41:46,792] A commitment device is a choice you make in the present that controls your actions in the future."
+    },
+    {
+      "verbatim_text": "[03:41:53,335,03:41:58,197] When Victor Hugo shut his clothes away so he could focus on writing, he was creating a commitment device."
+    },
+    {
+      "verbatim_text": "[03:42:15,108,03:42:22,430] Ulysses realized the benefits of locking in your future actions while your mind is in the right place, rather than waiting to see where your desires will take you in the moment."
+    },
+    {
+      "verbatim_text": "[03:42:26,089,03:42:30,571] You can reduce overeating by purchasing food in individual packages rather than in bulk size."
+    },
+    {
+      "verbatim_text": "[03:42:31,412,03:42:37,716] You can voluntarily ask to be added to the banned list at casinos and online poker sites to prevent future gambling sprees."
+    },
+    {
+      "verbatim_text": "[03:42:38,377,03:42:46,402] I've even heard of athletes who have to make weight for a competition, choosing to leave their wallets at home during the week before weigh-in so they won't be tempted to buy fast food."
+    },
+    {
+      "verbatim_text": "[03:42:57,302,03:42:57,942] At 10 p.m."
+    },
+    {
+      "verbatim_text": "[03:42:57,982,03:43:04,244] each night, the outlet timer cuts off the power to the router, and when the internet goes off, everyone knows it's time to go to bed."
+    },
+    {
+      "verbatim_text": "[03:43:05,625,03:43:11,547] Commitment devices are useful because they enable you to take advantage of your good intentions before you can fall victim to temptation."
+    },
+    {
+      "verbatim_text": "[03:43:12,442,03:43:18,764] Whenever I'm looking to cut calories, for example, I will ask the waiter to split my meal and box it in half before the meal is served."
+    },
+    {
+      "verbatim_text": "[03:43:24,547,03:43:30,749] The key is to change the task such that it requires more work to get out of the good habit than to get started on it."
+    },
+    {
+      "verbatim_text": "[03:43:31,649,03:43:35,551] If you're feeling motivated to get in shape, schedule a yoga session and pay ahead of time."
+    },
+    {
+      "verbatim_text": "[03:43:36,171,03:43:41,173] If you're excited about the business you want to start, email an entrepreneur you respect and set up a consulting call."
+    },
+    {
+      "verbatim_text": "[03:43:42,207,03:43:47,350] When the time comes to act, the only way to bail is to cancel the meeting, which requires effort and may cost money."
+    },
+    {
+      "verbatim_text": "[03:43:48,350,03:43:53,733] Commitment devices increase the odds that you'll do the right thing in the future by making bad habits difficult in the present."
+    },
+    {
+      "verbatim_text": "[03:43:54,493,03:43:59,636] However, we can do even better. We can make good habits inevitable and bad habits impossible."
+    },
+    {
+      "verbatim_text": "[03:44:29,471,03:44:32,193] That was when Patterson discovered his employees were stealing from him."
+    },
+    {
+      "verbatim_text": "[03:44:54,565,03:45:01,128] As Patterson mulled over his predicament, he came across an advertisement for a new invention called Ritty's Incorruptible Cashier."
+    },
+    {
+      "verbatim_text": "[03:45:02,163,03:45:05,724] Designed by fellow Dayton resident James Ritty, it was the first cash register."
+    },
+    {
+      "verbatim_text": "[03:45:06,745,03:45:10,626] The machine automatically locked the cash and receipts inside after each transaction."
+    },
+    {
+      "verbatim_text": "[03:45:11,086,03:45:15,988] Patterson bought two for $50 each. Employee theft at his store vanished overnight."
+    },
+    {
+      "verbatim_text": "[03:45:16,928,03:45:23,130] In the next six months, Patterson's business went from losing money to making $5,000 in profit, the equivalent of more than $100,000 today."
+    },
+    {
+      "verbatim_text": "[03:45:25,350,03:45:28,352] Patterson was so impressed with the machine that he changed businesses."
+    },
+    {
+      "verbatim_text": "[03:45:28,753,03:45:32,676] He bought the rights to Ritty's invention and opened the National Cash Register company."
+    },
+    {
+      "verbatim_text": "[03:45:42,063,03:45:45,245] The best way to break a bad habit is to make it impractical to do."
+    },
+    {
+      "verbatim_text": "[03:45:45,986,03:45:48,468] Increase the friction until you don't even have the option to act."
+    },
+    {
+      "verbatim_text": "[03:45:49,596,03:45:55,186] The brilliance of the cash register was that it automated ethical behavior by making stealing practically impossible."
+    },
+    {
+      "verbatim_text": "[03:46:06,045,03:46:11,048] These one-time choices require a little bit of effort up front, but create increasing value over time."
+    },
+    {
+      "verbatim_text": "[03:46:28,082,03:46:34,264] Buy a water filter to clean your drinking water. Use smaller plates to reduce caloric intake. Sleep."
+    },
+    {
+      "verbatim_text": "[03:46:34,964,03:46:41,425] Buy a good mattress. Get blackout curtains. Remove your television from your bedroom. Productivity."
+    },
+    {
+      "verbatim_text": "[03:46:42,405,03:46:48,767] Unsubscribe from emails. Turn off notifications and mute group chats. Set your phone to silent."
+    },
+    {
+      "verbatim_text": "[03:46:49,747,03:46:54,828] Use email filters to clear up your inbox. Delete games and social media apps from your phone."
+    },
+    {
+      "verbatim_text": "[03:46:56,458,03:47:03,841] Happiness. Get a dog. Move to a friendly social neighborhood. General health. Get vaccinated."
+    },
+    {
+      "verbatim_text": "[03:47:04,601,03:47:10,543] Buy good shoes to avoid back pain. Buy a supportive chair or a standing desk. Finance."
+    },
+    {
+      "verbatim_text": "[03:47:11,524,03:47:17,306] Enroll in an automatic savings plan. Set up automatic bill pay. Cut cable service."
+    },
+    {
+      "verbatim_text": "[03:47:18,326,03:47:20,667] Call up service providers and ask to lower your bills."
+    },
+    {
+      "verbatim_text": "[03:47:22,398,03:47:31,580] I'd wager that if the average person were to simply do half of the one-time actions on this list, even if they didn't give another thought to their habits, most would find themselves living a better life a year from now."
+    },
+    {
+      "verbatim_text": "[03:47:32,700,03:47:37,042] These one-time actions are a straightforward way to employ the third law of behavior change."
+    },
+    {
+      "verbatim_text": "[03:47:37,482,03:47:43,043] They make it easier to sleep well or eat healthy or be productive, to save money, and generally live better."
+    },
+    {
+      "verbatim_text": "[03:47:48,725,03:47:51,128] Typically, they involve putting technology to work for you."
+    },
+    {
+      "verbatim_text": "[03:47:51,589,03:47:58,177] Technology can transform actions that were once hard, annoying, and complicated into behaviors that are easy, painless, and simple."
+    },
+    {
+      "verbatim_text": "[03:47:58,738,03:48:02,143] It is the most reliable and effective way to guarantee the right behavior."
+    },
+    {
+      "verbatim_text": "[03:48:03,027,03:48:07,331] This is particularly useful for behaviors that happen too infrequently to become habitual."
+    },
+    {
+      "verbatim_text": "[03:48:07,991,03:48:18,761] Things you have to do monthly or yearly, like rebalancing your investment portfolio, are never repeated frequently enough to become a habit, so they benefit in particular from technology remembering to do them for you."
+    },
+    {
+      "verbatim_text": "[03:48:20,122,03:48:25,467] Other examples include medicine. Prescriptions can be automatically refilled. Or personal finance."
+    },
+    {
+      "verbatim_text": "[03:48:26,187,03:48:29,250] Employees can save for retirement with an automatic wage deduction."
+    },
+    {
+      "verbatim_text": "[03:48:30,583,03:48:33,544] Cooking – meal delivery services can do your grocery shopping."
+    },
+    {
+      "verbatim_text": "[03:48:34,704,03:48:38,226] Productivity – social media browsing can be cut off with a website blocker."
+    },
+    {
+      "verbatim_text": "[03:48:39,786,03:48:44,908] When you automate as much of your life as possible, you can spend your effort on the tasks machines cannot do yet."
+    },
+    {
+      "verbatim_text": "[03:48:45,728,03:48:51,290] Each habit that we hand over to the authority of technology frees up time and energy to pour into the next stage of growth."
+    },
+    {
+      "verbatim_text": "[03:48:55,959,03:49:00,782] Civilization advances by extending the number of operations we can perform without thinking about them."
+    },
+    {
+      "verbatim_text": "[03:49:01,982,03:49:05,184] Of course, the power of technology can work against us as well."
+    },
+    {
+      "verbatim_text": "[03:49:06,024,03:49:12,128] Binge-watching becomes a habit because you have to put more effort into stop looking at the screen than to continue doing so."
+    },
+    {
+      "verbatim_text": "[03:49:13,048,03:49:18,091] Instead of pressing a button to advance to the next episode, Netflix or YouTube will autoplay it for you."
+    },
+    {
+      "verbatim_text": "[03:49:18,531,03:49:19,992] All you have to do is keep your eyes open."
+    },
+    {
+      "verbatim_text": "[03:49:21,158,03:49:26,140] Technology creates a level of convenience that enables you to act on your smallest whims and desires."
+    },
+    {
+      "verbatim_text": "[03:49:27,081,03:49:30,623] At the mere suggestion of hunger, you can have food delivered to your door."
+    },
+    {
+      "verbatim_text": "[03:49:31,143,03:49:35,205] At the slightest hint of boredom, you can get lost in the vast expanse of social media."
+    },
+    {
+      "verbatim_text": "[03:49:35,865,03:49:43,009] When the effort required to act on your desires becomes effectively zero, you can find yourself slipping into whatever impulse arises at the moment."
+    },
+    {
+      "verbatim_text": "[03:49:43,841,03:49:52,825] The downside of automation is that we can find ourselves jumping from easy task to easy task without making time for more difficult, but ultimately more rewarding work."
+    },
+    {
+      "verbatim_text": "[03:50:02,168,03:50:08,391] It's easy to write off these minor distractions as just taking a break, but over time they can accumulate into a serious issue."
+    },
+    {
+      "verbatim_text": "[03:50:08,891,03:50:14,913] The constant tug of just one more minute can prevent me from doing anything of consequence.  I'm not the only one."
+    },
+    {
+      "verbatim_text": "[03:50:15,073,03:50:20,902] The average person spends over two hours per day on social media. What could you do with an extra 600 hours per year?"
+    },
+    {
+      "verbatim_text": "[03:50:27,334,03:50:32,898] Every Monday, my assistant would reset the passwords on all my social media accounts, which logged me out on each device."
+    },
+    {
+      "verbatim_text": "[03:50:33,699,03:50:38,282] All week, I worked without distraction. On Friday, she would send me the new passwords."
+    },
+    {
+      "verbatim_text": "[03:50:38,882,03:50:44,086] I had the entire weekend to enjoy what social media had to offer until Monday morning when she would do it again."
+    },
+    {
+      "verbatim_text": "[03:50:51,122,03:50:53,544] One of the biggest surprises was how quickly I adapted."
+    },
+    {
+      "verbatim_text": "[03:50:54,124,03:51:01,448] Within the first week of locking myself out of social media, I realized that I didn't need to check it nearly as often as I had been, and I certainly didn't need it each day."
+    },
+    {
+      "verbatim_text": "[03:51:02,389,03:51:05,051] It had simply been so easy that it had become the default."
+    },
+    {
+      "verbatim_text": "[03:51:05,811,03:51:11,775] Once my bad habit became impossible, I discovered that I did actually have the motivation to work on more meaningful tasks."
+    },
+    {
+      "verbatim_text": "[03:51:12,555,03:51:16,818] After I removed the mental candy from my environment, it became much easier to eat the healthy stuff."
+    },
+    {
+      "verbatim_text": "[03:51:18,034,03:51:22,597] When working in your favor, automation can make your good habits inevitable and your bad habits impossible."
+    },
+    {
+      "verbatim_text": "[03:51:23,278,03:51:28,121] It is the ultimate way to lock in future behavior rather than relying on willpower in the moment."
+    },
+    {
+      "verbatim_text": "[03:51:28,842,03:51:41,891] By utilizing commitment devices, strategic one-time decisions, and technology, you can create an environment of inevitability, a space where good habits are not just an outcome you hope for, but an outcome that is virtually guaranteed."
+    },
+    {
+      "verbatim_text": "[03:51:44,112,03:51:49,533] Chapter summary.  The inversion of the third law of behavior change is make it difficult."
+    },
+    {
+      "verbatim_text": "[03:51:50,533,03:51:54,776] A commitment device is a choice you make in the present that locks in better behavior in the future."
+    },
+    {
+      "verbatim_text": "[03:51:55,817,03:51:59,260] The ultimate way to lock in future behavior is to automate your habits."
+    },
+    {
+      "verbatim_text": "[03:52:00,380,03:52:09,587] One-time choices, like buying a better mattress or enrolling in an automatic savings plan, are single actions that automate your future habits and deliver increasing returns over time."
+    },
+    {
+      "verbatim_text": "[03:52:10,868,03:52:16,290] Using technology to automate your habits is the most reliable and effective way to guarantee the right behavior."
+    },
+    {
+      "verbatim_text": "[03:52:18,671,03:52:24,914] Now that we have concluded our discussion of the third law of behavior change, let me summarize how to create a good habit and how to create a bad one."
+    },
+    {
+      "verbatim_text": "[03:53:02,185,03:53:06,047] Invest in technology and one-time purchases that lock in future behavior."
+    },
+    {
+      "verbatim_text": "[03:53:11,979,03:53:17,922] The inversion of the third law is make it difficult. Application 3.6, increase friction."
+    },
+    {
+      "verbatim_text": "[03:53:18,482,03:53:24,845] Increase the number of steps between you and your bad habits. Application 3.7, use a commitment device."
+    },
+    {
+      "verbatim_text": "[03:53:25,285,03:53:27,886] Restrict your future choices to the ones that benefit you."
+    }
+  ],
+  "start_index": 2254,
+  "end_index": 2386
+}

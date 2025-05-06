@@ -1,341 +1,337 @@
+"""
+This is an advanced PyMuPDF utility for detecting multi-column pages.
+It can be used in a shell script, or its main function can be imported and
+invoked as descript below.
+
+Features
+---------
+- Identify text belonging to (a variable number of) columns on the page.
+- Text with different background color is handled separately, allowing for
+  easier treatment of side remarks, comment boxes, etc.
+- Uses text block detection capability to identify text blocks and
+  uses the block bboxes as primary structuring principle.
+- Supports ignoring footers via a footer margin parameter.
+- Returns re-created text boundary boxes (integer coordinates), sorted ascending
+  by the top, then by the left coordinates.
+
+Restrictions
+-------------
+- Only supporting horizontal, left-to-right text
+- Returns a list of text boundary boxes - not the text itself. The caller is
+  expected to extract text from within the returned boxes.
+- Text written above images is ignored altogether (option).
+- This utility works as expected in most cases. The following situation cannot
+  be handled correctly:
+    * overlapping (non-disjoint) text blocks
+    * image captions are not recognized and are handled like normal text
+
+Usage
+------
+- As a CLI shell command use
+
+  python multi_column.py input.pdf footer_margin
+
+  Where footer margin is the height of the bottom stripe to ignore on each page.
+  This code is intended to be modified according to your need.
+
+- Use in a Python script as follows:
+
+  ----------------------------------------------------------------------------------
+  from multi_column import column_boxes
+
+  # for each page execute
+  bboxes = column_boxes(page, footer_margin=50, no_image_text=True)
+
+  # bboxes is a list of fitz.IRect objects, that are sort ascending by their y0,
+  # then x0 coordinates. Their text content can be extracted by all PyMuPDF
+  # get_text() variants, like for instance the following:
+  for rect in bboxes:
+      print(page.get_text(clip=rect, sort=True))
+  ----------------------------------------------------------------------------------
+"""
 import os
-import fitz  # PyMuPDF
-import numpy as np
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.prompts import PromptTemplate
+import sys
+import fitz
 
 
-import argparse
-from dotenv import load_dotenv
-from mistralai import Mistral
-load_dotenv()
-from mistralai import DocumentURLChunk, ImageURLChunk, TextChunk
-from pathlib import Path
-import json
+def column_boxes(page, footer_margin=50, header_margin=50, no_image_text=True):
+    """Determine bboxes which wrap a column."""
+    paths = page.get_drawings()
+    bboxes = []
 
-def extract_text_with_bboxes(pdf_path):
-    """Extract text and bounding boxes from a PDF file using Mistral OCR."""
-    try:
-        # Get API key from environment variables
-        api_key = os.getenv("MISTRAL_API_KEY")
-        if not api_key:
-            raise ValueError("MISTRAL_API_KEY not found in environment variables")
-        uploaded_file = client.files.upload(
-        file={
-                "file_name": pdf_path,
-                "content": open(pdf_path, "rb"),
-            },
-            purpose="ocr",
-        )
-        client = Mistral(api_key=api_key)
-        
-        # Process the PDF with Mistral OCR
-        signed_url = client.files.get_signed_url(file_id=uploaded_file.id, expiry=1)
+    # path rectangles
+    path_rects = []
 
-        pdf_response = client.ocr.process(document=DocumentURLChunk(document_url=signed_url.url), model="mistral-ocr-latest", include_image_base64=True)
+    # image bboxes
+    img_bboxes = []
 
-        response_dict = json.loads(pdf_response)
-        
-        # Process OCR results into the expected format
-        all_blocks = []
-        
-        for page_idx, page in enumerate(pdf_response.pages):
-            for block in page.blocks:
-                # Extract text and bounding box
-                text = block.text.strip()
-                if not text:
-                    continue
-                
-                # Convert bounding box to format expected by rest of code
-                x0 = block.bbox.x
-                y0 = block.bbox.y
-                x1 = x0 + block.bbox.width
-                y1 = y0 + block.bbox.height
-                
-                all_blocks.append({
-                    "page": page_idx,
-                    "bbox": (x0, y0, x1, y1),
-                    "text": text,
-                    "block_no": 0,  # Default block number
-                    "block_type": 0  # Default block type
-                })
-        
-        return all_blocks
-    except Exception as e:
-        print(f"Error using Mistral OCR: {e}")
-        print("Falling back to PyMuPDF extraction.")
-        return extract_text_with_pymupdf(pdf_path)
+    # bboxes of non-horizontal text
+    # avoid when expanding horizontal text boxes
+    vert_bboxes = []
 
-def extract_text_with_pymupdf(pdf_path):
-    """Original PyMuPDF extraction as fallback."""
-    doc = fitz.open(pdf_path)
-    all_blocks = []
-    
-    for page_num, page in enumerate(doc):
-        blocks = page.get_text("blocks")
-        # Saving every written block to a text file for human inspection
-        # with open(f"page_{page_num}.txt", "w", encoding="utf-8") as f:
-        #     for block in blocks:
-        #         x0, y0, x1, y1, text, block_no, block_type = block
-        #         f.write(f"Block {block_no} ({block_type}) at ({x0}, {y0})-({x1}, {y1}): {text.strip()}\n")
-        for block in blocks:
-            # Each block is (x0, y0, x1, y1, text, block_no, block_type)
-            x0, y0, x1, y1, text, block_no, block_type = block
-            if not text.strip():
-                continue
-            
-            # Add page number to the block info
-            all_blocks.append({
-                "page": page_num,
-                "bbox": (x0, y0, x1, y1),
-                "text": text.strip(),
-                "block_no": block_no,
-                "block_type": block_type
-            })
-    
-    doc.close()
-    return all_blocks
+    # compute relevant page area
+    clip = +page.rect
+    clip.y1 -= footer_margin  # Remove footer area
+    clip.y0 += header_margin  # Remove header area
 
-def classify_text_blocks(blocks):
-    """Classify text blocks into main content, footnotes, and extra information."""
-    classified_blocks = []
-    heights = []
-    for block in blocks:
-        bbox = block["bbox"]
-        height = bbox[3] - bbox[1]  # y1 - y0
-        heights.append(height)
-    if not heights:
-        print("No blocks to analyze")
-        return None
-    
-    median_height = np.median(heights)
-    # Process each block
-    for block in blocks:
-        # Simple heuristics for initial classification
-        text = block["text"]
-        bbox = block["bbox"]
-        classification = "main"  # Default classification
-        box_height = bbox[3] - bbox[1]
-        # Footnote heuristics: typically smaller text at bottom of page or starts with numbers/symbols
-        if any(text.startswith(prefix) for prefix in ["1.", "2.", "*", "†"]):
-            classification = "footnote"
-        # Extra info heuristics: sidebars, captions, etc. (often in boxes or with different formatting)
-        elif np.floor(median_height)<= box_height <= np.ceil(median_height): 
-            classification = "main"
-        else:
-            classification = "extra"
-            
-        # print(classification, text)
-        if classification == "main":
-            # Check if the text is too short to be main content
-            if "Letter" in text or text == "Carus" or text.startswith("1") or text.startswith("6"):
-                classification = "extra"
-        block["category"] = classification
-        classified_blocks.append(block)
-    
-    return classified_blocks
+    def can_extend(temp, bb, bboxlist):
+        """Determines whether rectangle 'temp' can be extended by 'bb'
+        without intersecting any of the rectangles contained in 'bboxlist'.
 
-def chunk_text(blocks, chunk_size=1000, chunk_overlap=200):
-    """Chunk text blocks into smaller pieces for processing."""
-    # Separate blocks by category
-    categories = {"main": [], "footnote": [], "extra": []}
-    for block in blocks:
-        categories[block["category"]].append(block)
-    
-    chunked_data = {}
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        length_function=len,
-    )
-    
-    for category, category_blocks in categories.items():
-        # Extract text from blocks
-        texts = [block["text"] for block in category_blocks]
-        full_text = "\n\n".join(texts)
-        
-        # Chunk the text
-        chunks = text_splitter.split_text(full_text)
-        chunked_data[category] = chunks
-    
-    return chunked_data
+        Items of bboxlist may be None if they have been removed.
 
-
-def identify_interesting_points(chunked_data, llm, blocks, file_name):
-    """Use an LLM to identify interesting or important points in the text."""
-    interesting_sections = []
-    
-    # Only process the 'main' category
-    if 'main' not in chunked_data:
-        print("No main content identified in the document")
-        return interesting_sections
-        
-    prompt_template = PromptTemplate(
-        input_variables=["text"],
-        template="""
-        You are a curious student, tasked with annotating a piece of text for a minimum of 10 interesting points.
-        Return a listing of interesting points in the text in the form of direct snippets extracted from the text itself.
-        
-        DO NOT include any other text nor return nothing.
-        
-        Format each segment on a new line, wrapped in triple backticks, like:
-        ```segment 1```
-        ```segment 2```
-
-        Below is text from the main content of a document in English:
-        {text}
+        Returns:
+            True if 'temp' has no intersections with items of 'bboxlist'.
         """
-    )
-    
-    # for chunk in chunked_data['main']:
-    chunk = "\n".join(chunked_data['main'])
-    
-    prompt = prompt_template.format(text=chunk)
-    interesting_points = []
-    
-    if os.path.exists(file_name):
-        with open(file_name, "r", encoding="utf-8") as f:
-            for line in f.readlines():
-                if not len(line.strip()):
-                    continue
-                interesting_points.append(line)
-            for segment in interesting_points:
-                threshold = 5
-                segment = segment.strip()
-                if len(segment.split()) < threshold:
-                    continue
-                for block in blocks:
-                    intersect_more_more_than_threshold = False
-                    if len(segment.split()) >= threshold:
-                        count = 0
-                        for chip in block["text"].split(" "):
-                            if chip in segment.split(" "):
-                                count += 1
-                        print("count:", count, "len:", len(segment.split()), "threshold:", len(segment.split())*(1/threshold), "seg:", segment)
-                        if count >= len(segment.split(" "))*(1/threshold):
-                            intersect_more_more_than_threshold = True
-                            # print('seg:', segment,"\n block:\n", block["text"],"\n")
-                                
-                    if (segment in block["text"] or intersect_more_more_than_threshold):
-                        interesting_sections.append({
-                            "page": block["page"],
-                            "text": segment,
-                            "category": "main",
-                            "bbox": block["bbox"]
-                        })
-                        # print(segment)
-    if not interesting_points:
-        try:
-            response = llm.invoke(prompt)
-            # Extract segments between triple backticks
-            import re
-            segments = re.findall(r'```(.*?)```', response.content, re.DOTALL)
-            
-            for segment in segments:
-                segment = segment.strip()
-                # print(segment)
-                for block in blocks:
-                    if segment in block["text"] and block["category"] == "main":
-                        # print(block["page"])
-                        interesting_sections.append({
-                            "page": block["page"],
-                            "text": segment,
-                            "category": "main",
-                            "bbox": block["bbox"]
-                        })
-                        break
-            with open(file_name, "w", encoding="utf-8") as f:
-                f.write("\n\n".join(segments))
-        except Exception as e:
-            print(f"Error during interesting point extraction: {e}")
-        
-    return interesting_sections
+        for b in bboxlist:
+            if not intersects_bboxes(temp, vert_bboxes) and (
+                b == None or b == bb or (temp & b).is_empty
+            ):
+                continue
+            return False
 
-def highlight_interesting_points(pdf_path, interesting_points, output_path):
-    """Add highlights to the interesting points in the PDF."""
-    doc = fitz.open(pdf_path)
-    
-    # Using cyan highlight color for main content
-    highlight_color = (0, 1, 1)  # RGB for cyan
-    fail_count = 0
-    for point in interesting_points:
-        page = doc[point["page"]]
-        text = point["text"]
-        if not text:
-            print(f"Empty text for page {point['page']}")
+        return True
+
+    def in_bbox(bb, bboxes):
+        """Return 1-based number if a bbox contains bb, else return 0."""
+        for i, bbox in enumerate(bboxes):
+            if bb in bbox:
+                return i + 1
+        return 0
+
+    def intersects_bboxes(bb, bboxes):
+        """Return True if a bbox intersects bb, else return False."""
+        for bbox in bboxes:
+            if not (bb & bbox).is_empty:
+                return True
+        return False
+
+    def extend_right(bboxes, width, path_bboxes, vert_bboxes, img_bboxes):
+        """Extend a bbox to the right page border.
+
+        Whenever there is no text to the right of a bbox, enlarge it up
+        to the right page border.
+
+        Args:
+            bboxes: (list[IRect]) bboxes to check
+            width: (int) page width
+            path_bboxes: (list[IRect]) bboxes with a background color
+            vert_bboxes: (list[IRect]) bboxes with vertical text
+            img_bboxes: (list[IRect]) bboxes of images
+        Returns:
+            Potentially modified bboxes.
+        """
+        for i, bb in enumerate(bboxes):
+            # do not extend text with background color
+            if in_bbox(bb, path_bboxes):
+                continue
+
+            # do not extend text in images
+            if in_bbox(bb, img_bboxes):
+                continue
+
+            # temp extends bb to the right page border
+            temp = +bb
+            temp.x1 = width
+
+            # do not cut through colored background or images
+            if intersects_bboxes(temp, path_bboxes + vert_bboxes + img_bboxes):
+                continue
+
+            # also, do not intersect other text bboxes
+            check = can_extend(temp, bb, bboxes)
+            if check:
+                bboxes[i] = temp  # replace with enlarged bbox
+
+        return [b for b in bboxes if b != None]
+
+    def clean_nblocks(nblocks):
+        """Do some elementary cleaning."""
+
+        # 1. remove any duplicate blocks.
+        blen = len(nblocks)
+        if blen < 2:
+            return nblocks
+        start = blen - 1
+        for i in range(start, -1, -1):
+            bb1 = nblocks[i]
+            bb0 = nblocks[i - 1]
+            if bb0 == bb1:
+                del nblocks[i]
+
+        # 2. repair sequence in special cases:
+        # consecutive bboxes with almost same bottom value are sorted ascending
+        # by x-coordinate.
+        y1 = nblocks[0].y1  # first bottom coordinate
+        i0 = 0  # its index
+        i1 = -1  # index of last bbox with same bottom
+
+        # Iterate over bboxes, identifying segments with approx. same bottom value.
+        # Replace every segment by its sorted version.
+        for i in range(1, len(nblocks)):
+            b1 = nblocks[i]
+            if abs(b1.y1 - y1) > 10:  # different bottom
+                if i1 > i0:  # segment length > 1? Sort it!
+                    nblocks[i0 : i1 + 1] = sorted(
+                        nblocks[i0 : i1 + 1], key=lambda b: b.x0
+                    )
+                y1 = b1.y1  # store new bottom value
+                i0 = i  # store its start index
+            i1 = i  # store current index
+        if i1 > i0:  # segment waiting to be sorted
+            nblocks[i0 : i1 + 1] = sorted(nblocks[i0 : i1 + 1], key=lambda b: b.x0)
+        return nblocks
+
+    # extract vector graphics
+    for p in paths:
+        path_rects.append(p["rect"].irect)
+    path_bboxes = path_rects
+
+    # sort path bboxes by ascending top, then left coordinates
+    path_bboxes.sort(key=lambda b: (b.y0, b.x0))
+
+    # bboxes of images on page, no need to sort them
+    for item in page.get_images():
+        img_bboxes.extend(page.get_image_rects(item[0]))
+
+    # blocks of text on page
+    blocks = page.get_text(
+        "dict",
+        flags=fitz.TEXTFLAGS_TEXT,
+        clip=clip,
+    )["blocks"]
+
+    # Make block rectangles, ignoring non-horizontal text
+    for b in blocks:
+        bbox = fitz.IRect(b["bbox"])  # bbox of the block
+
+        # ignore text written upon images
+        if no_image_text and in_bbox(bbox, img_bboxes):
             continue
-        # Search for text on the page
-        # cross check with bbox
-        text_instances = page.search_for(text)
-        if not text_instances:
-            # print(f"Text not found on page {point['page']}: {text}")
-            fail_count += 1
+
+        # confirm first line to be horizontal
+        line0 = b["lines"][0]  # get first line
+        if line0["dir"] != (1, 0):  # only accept horizontal text
+            vert_bboxes.append(bbox)
             continue
-        # if text in highlighted_text:
-        #     print(f"Text already highlighted on page {point['page']}: {text}")
-        # Highlight each instance of the text
-        for inst in text_instances:
-            # Add highlight annotation
-            highlight = page.add_highlight_annot(inst)
-            # Set color
-            highlight.set_colors(stroke=highlight_color)
-            highlight.update()
-        # highlighted_text += text
-    print(f"Failed to highlight {fail_count} segments")
-    # Save the highlighted PDF
-    doc.save(output_path)
-    doc.close()
+
+        srect = fitz.EMPTY_IRECT()
+        for line in b["lines"]:
+            lbbox = fitz.IRect(line["bbox"])
+            text = "".join([s["text"].strip() for s in line["spans"]])
+            if len(text) > 1:
+                srect |= lbbox
+        bbox = +srect
+
+        if not bbox.is_empty:
+            bboxes.append(bbox)
+
+    # Sort text bboxes by ascending background, top, then left coordinates
+    bboxes.sort(key=lambda k: (in_bbox(k, path_bboxes), k.y0, k.x0))
+
+    # Extend bboxes to the right where possible
+    bboxes = extend_right(
+        bboxes, int(page.rect.width), path_bboxes, vert_bboxes, img_bboxes
+    )
+
+    # immediately return of no text found
+    if bboxes == []:
+        return []
+
+    # --------------------------------------------------------------------
+    # Join bboxes to establish some column structure
+    # --------------------------------------------------------------------
+    # the final block bboxes on page
+    nblocks = [bboxes[0]]  # pre-fill with first bbox
+    bboxes = bboxes[1:]  # remaining old bboxes
+
+    for i, bb in enumerate(bboxes):  # iterate old bboxes
+        check = False  # indicates unwanted joins
+
+        # check if bb can extend one of the new blocks
+        for j in range(len(nblocks)):
+            nbb = nblocks[j]  # a new block
+
+            # never join across columns
+            if bb == None or nbb.x1 < bb.x0 or bb.x1 < nbb.x0:
+                continue
+
+            # never join across different background colors
+            if in_bbox(nbb, path_bboxes) != in_bbox(bb, path_bboxes):
+                continue
+
+            temp = bb | nbb  # temporary extension of new block
+            check = can_extend(temp, nbb, nblocks)
+            if check == True:
+                break
+
+        if not check:  # bb cannot be used to extend any of the new bboxes
+            nblocks.append(bb)  # so add it to the list
+            j = len(nblocks) - 1  # index of it
+            temp = nblocks[j]  # new bbox added
+
+        # check if some remaining bbox is contained in temp
+        check = can_extend(temp, bb, bboxes)
+        if check == False:
+            nblocks.append(bb)
+        else:
+            nblocks[j] = temp
+        bboxes[i] = None
+
+    # do some elementary cleaning
+    nblocks = clean_nblocks(nblocks)
+
+    # return identified text bboxes
+    return nblocks
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Extract, analyze and highlight text from PDF documents")
-    parser.add_argument("--pdf", required=True, help="Path to PDF file")
-    parser.add_argument("--output", default=None, help="Output path for highlighted PDF")
-    parser.add_argument("--model", default="gemini-2.0-flash", help="Gemini model to use (default: gemini-pro)")
-    args = parser.parse_args()
-    
-    pdf_file = Path(args.pdf)
-    assert pdf_file.is_file()
-    # Set default output paths if not provided
-    if not args.output:
-        base_name = os.path.splitext(args.pdf)[0]
-        args.output = f"{base_name}_highlighted.pdf"
-    
-    # Initialize LLM
-    try:
-        llm = ChatGoogleGenerativeAI(model=args.model, temperature=0)
-    except Exception as e:
-        print(f"Error initializing Gemini LLM: {e}")
-        print("Make sure you have set GOOGLE_API_KEY in your environment or .env file")
-        exit(1)
-    
-    print(f"Processing PDF: {args.pdf}")
-    
-    # Extract text and bounding boxes
-    blocks = extract_text_with_pymupdf(args.pdf)
-    
+    """Only for debugging purposes, currently.
 
+    Draw red borders around the returned text bboxes and insert
+    the bbox number.
+    Then save the file under the name "input-blocks.pdf".
+    """
 
-    print(f"Extracted {len(blocks)} text blocks")
-    
-    # Classify text blocks
-    classified_blocks = classify_text_blocks(blocks)
-    print("Classified text blocks")
-    # Print all main text concatenated
-    with open('content.txt', "w", encoding="utf-8") as f:
-        f.write(" ".join([block["text"] for block in classified_blocks if block["category"] == "main"]))
-    # # Chunk text
-    chunked_data = chunk_text(classified_blocks)
-    print("Chunked text for processing")
-    
-    # # Identify interesting points (main content only)
-    interesting_points = identify_interesting_points(chunked_data, llm, classified_blocks, f"{base_name}_interesting_points.txt")  # Save to file
-    # load from memory
-    print(f"Identified {len(interesting_points)} interesting points in main content")
-    
-    # # Highlight interesting points in the PDF
-    highlight_interesting_points(args.pdf, interesting_points, args.output)
-    print(f"Created highlighted PDF: {args.output}")
-    
-    print("Processing complete!")
-    # uv run D:\DATA300\AudioBookSum\highlighter.py --pdf D:\DATA300\AudioBookSum\pdf\Nasim1_15.pdf
+    # get the file name
+    filename = sys.argv[1]
+
+    # check if footer margin is given
+    if len(sys.argv) > 2:
+        footer_margin = int(sys.argv[2])
+    else:  # use default vaue
+        footer_margin = 50
+
+    # check if header margin is given
+    if len(sys.argv) > 3:
+        header_margin = int(sys.argv[3])
+    else:  # use default vaue
+        header_margin = 50
+
+    # open document
+    doc = fitz.open(filename)
+
+    # iterate over the pages
+    for page in doc:
+        # remove any geometry issues
+        page.wrap_contents()
+
+        # get the text bboxes
+        bboxes = column_boxes(page, footer_margin=footer_margin, header_margin=header_margin)
+
+        # prepare a canvas to draw rectangles and text
+        shape = page.new_shape()
+
+        # iterate over the bboxes
+        for i, rect in enumerate(bboxes):
+            shape.draw_rect(rect)  # draw a border
+
+            # write sequence number
+            shape.insert_text(rect.tl + (5, 15), str(i), color=fitz.pdfcolor["red"])
+
+        # finish drawing / text with color red
+        shape.finish(color=fitz.pdfcolor["red"])
+        shape.commit()  # store to the page
+
+    # save document with text bboxes
+    doc.ez_save(filename.replace(".pdf", "-blocks.pdf"))

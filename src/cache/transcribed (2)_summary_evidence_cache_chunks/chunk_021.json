@@ -1,0 +1,43 @@
+{
+  "summary": "This section of \"Atomic Habits\" discusses habit stacking combined with habit tracking. The formula is 'after a current habit, I will track my habit.' However, every habit streak ends, and the rule is 'never miss twice' to avoid a spiral of mistakes. A potential danger of habit tracking is measuring the wrong thing, as stated in Goodhart's Law: 'when a measure becomes a target, it ceases to be a good measure.' It's important to keep habit tracking in its place and remember that measurement isn't the only thing that matters. A habit tracker is a way to measure whether you did a habit and to 'never break the chain,' but it is important to remember that 'just because you can measure something doesn't mean it's the most important thing.'",
+  "evidence": [
+    {
+      "verbatim_text": "[04:20:20,971,04:20:26,474] This approach allows you to combine the habit stacking method mentioned in Chapter 5 with the action of habit tracking."
+    },
+    {
+      "verbatim_text": "[04:20:26,774,04:20:33,858] So, the habit stacking plus habit tracking formula is, after a current habit, I will track my habit."
+    },
+    {
+      "verbatim_text": "[04:20:49,840,04:20:52,201] These tactics can make tracking your habits easier."
+    },
+    {
+      "verbatim_text": "[04:21:02,737,04:21:05,360] That said, every habit streak ends at some point."
+    },
+    {
+      "verbatim_text": "[04:21:30,815,04:21:35,538] Whenever this happens to me, I try to remind myself of a simple rule, never miss twice."
+    },
+    {
+      "verbatim_text": "[04:21:55,523,04:22:00,129] The first mistake is never the one that ruins you. It's the spiral of repeated mistakes that follows."
+    },
+    {
+      "verbatim_text": "[04:23:53,768,04:23:58,632] Another potential danger, especially if you are using a habit tracker, is measuring the wrong thing."
+    },
+    {
+      "verbatim_text": "[04:25:47,763,04:25:54,787] Named after the economist Charles Goodhart, the principle states, when a measure becomes a target, it ceases to be a good measure."
+    },
+    {
+      "verbatim_text": "[04:26:28,660,04:26:32,263] All of this to say, it's crucial to keep habit tracking in its proper place."
+    },
+    {
+      "verbatim_text": "[04:27:36,043,04:27:41,084] A habit tracker is a simple way to measure whether you did a habit, like marking an X on a calendar."
+    },
+    {
+      "verbatim_text": "[04:27:49,887,04:27:54,788] Don't break the chain. Try to keep your habit streak alive. Never miss twice."
+    },
+    {
+      "verbatim_text": "[04:28:00,269,04:28:03,530] Just because you can measure something doesn't mean it's the most important thing."
+    }
+  ],
+  "start_index": 2666,
+  "end_index": 2748
+}
