@@ -1,0 +1,31 @@
+# Core ML Libraries
+torch>=2.0.0
+transformers>=4.30.0
+datasets>=2.10.0
+accelerate>=0.20.0
+unsloth>=0.3.0  # For FastModel
+peft>=0.4.0  # For parameter-efficient fine-tuning
+trl>=0.7.1  # For GRPO trainer
+
+# NLP Processing
+sentence-transformers>=2.2.2  # For SEMANTIC_MODEL_NAME 'all-MiniLM-L6-v2'
+rouge-score>=0.1.2  # For reference-based evaluation
+nltk>=3.8.1  # Common NLP utilities
+
+# Audio Processing (for audio_book_pipeline)
+pydub>=0.25.1  # Likely used in audio_processor.py
+srt>=3.5.0  # For SRT file processing in srt_processor.py
+
+# Optimization & Quantization
+bitsandbytes>=0.39.0  # For 4-bit/8-bit quantization
+optimum>=1.8.0  # Optional Hugging Face optimization
+
+# Utilities
+numpy>=1.24.0
+tqdm>=4.65.0  # Progress bars
+wandb>=0.15.0  # Weights & Biases for experiment tracking
+scikit-learn>=1.2.0  # For metrics and utilities
+
+# For potential inference API
+fastapi>=0.95.0  # If you serve models via API
+uvicorn>=0.22.0  # ASGI server
