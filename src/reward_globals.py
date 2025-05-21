@@ -1,4 +1,4 @@
-# reward_globals.py
+
 import os
 import re
 import torch

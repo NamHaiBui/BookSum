@@ -1,8 +1,7 @@
-# config.py
 import numpy as np
 
 # Model and Tokenizer settings
-MODEL_NAME = "OscarBui/GemmaSummerizer1.0" # Default, can be overridden
+MODEL_NAME = "OscarBui/GemmaSummerizer1.0" 
 MAX_SEQ_LENGTH = 4192
 LORA_RANK = 4
 

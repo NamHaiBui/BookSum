@@ -1,4 +1,4 @@
-# inference.py
+
 import torch
 from transformers import TextStreamer
 import argparse
