@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  book_pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+      - ./.env:/app/.env
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"  # API
+      - "8001:8001"  # Metrics
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: >
+      sh -c "python -m uvicorn api.main:app --host 0.0.0.0 --port 8000"
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    depends_on:
+      - book_pipeline

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioBookSum Pipeline</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <h1>AudioBookSum</h1>
+                <span class="logo-subtitle">Book Pipeline</span>
+            </div>
+            <div class="status-indicator">
+                <span id="status-badge" class="status-badge">Connecting...</span>
+                <div id="status-details" class="status-details">
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <span class="metric-value" id="active-jobs">-</span>
+                            <span class="metric-label">Active Jobs</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="queued-jobs">-</span>
+                            <span class="metric-label">Queued Jobs</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="completed-jobs">-</span>
+                            <span class="metric-label">Completed Jobs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-content">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="upload">Upload PDF</button>
+                <button class="tab-button" data-tab="jobs">Job Status</button>
+                <button class="tab-button" data-tab="metrics">Metrics</button>
+            </div>
+
+            <div class="tab-content active" id="upload-tab">
+                <div class="upload-container">
+                    <h2>Upload Book PDF</h2>
+                    <div class="upload-form">
+                        <div class="file-upload-area" id="drop-area">
+                            <input type="file" id="file-input" accept=".pdf" hidden>
+                            <div class="upload-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v4h3l-4 4-4-4h3z"/></svg>
+                            </div>
+                            <div class="upload-text">
+                                <p>Drag & drop your PDF here</p>
+                                <p>or</p>
+                                <button id="browse-files-btn" class="button">Browse Files</button>
+                            </div>
+                            <p id="file-name" class="file-name"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <h3>Processing Options</h3>
+                            <div class="option-group">
+                                <div class="option">
+                                    <input type="checkbox" id="use-mistral" name="use-mistral">
+                                    <label for="use-mistral">Use Mistral for extraction</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="use-chunking-v1" name="use-chunking-v1">
+                                    <label for="use-chunking-v1">Use chunking algorithm v1</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="save-intermediate" name="save-intermediate" checked>
+                                    <label for="save-intermediate">Save intermediate files</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3>Advanced Options</h3>
+                            <div class="option-group">
+                                <div class="option">
+                                    <label for="chunk-size">Chunk Size:</label>
+                                    <input type="number" id="chunk-size" name="chunk-size" min="1000" max="100000" value="50000">
+                                </div>
+                                <div class="option">
+                                    <label for="chunk-overlap">Chunk Overlap:</label>
+                                    <input type="number" id="chunk-overlap" name="chunk-overlap" min="0" max="1000" value="100">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button id="submit-btn" class="button primary-button" disabled>Process PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="jobs-tab">
+                <div class="jobs-container">
+                    <h2>Job Status</h2>
+                    <div class="jobs-filter">
+                        <input type="text" id="job-search" placeholder="Search jobs...">
+                        <select id="job-filter">
+                            <option value="all">All Jobs</option>
+                            <option value="queued">Queued</option>
+                            <option value="processing">Processing</option>
+                            <option value="completed">Completed</option>
+                            <option value="failed">Failed</option>
+                        </select>
+                        <button id="refresh-jobs-btn" class="button">Refresh</button>
+                    </div>
+                    <div class="jobs-list" id="jobs-list">
+                        <!-- Jobs will be populated here via JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="metrics-tab">
+                <div class="metrics-container">
+                    <h2>Pipeline Metrics</h2>
+                    <div class="metrics-dashboard">
+                        <div class="metrics-card">
+                            <h3>Processing Time (seconds)</h3>
+                            <canvas id="processing-time-chart"></canvas>
+                        </div>
+                        <div class="metrics-row">
+                            <div class="metrics-card half">
+                                <h3>File Size Distribution</h3>
+                                <canvas id="file-size-chart"></canvas>
+                            </div>
+                            <div class="metrics-card half">
+                                <h3>Evidence Points Generated</h3>
+                                <canvas id="evidence-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="metrics-card">
+                            <h3>Job Status</h3>
+                            <canvas id="job-status-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Job Detail Modal -->
+        <div id="job-detail-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Job Details</h2>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <!-- Job details will be populated here -->
+                </div>
+                <div class="modal-footer">
+                    <button id="close-modal-btn" class="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

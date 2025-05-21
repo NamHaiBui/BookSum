@@ -7,7 +7,10 @@ __pycache__/
 *.so
 output_snippets_by_chunk/
 output_images/
-book_pipeline/
+output_snippets/
+book_pipeline/cache/
+book_pipeline/output/
+book_pipeline/data/
 
 # Distribution / packaging
 .Python
